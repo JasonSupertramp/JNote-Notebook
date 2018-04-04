@@ -122,6 +122,7 @@ public class EditController implements Initializable {
 	public void artSubmitButtonClick(ActionEvent event) {
 		try {
 			art = new Article();
+			art.setUserId(new LoginController().getUserId());
 			art.setCategoryId(getCatId(readCategoryBox.getValue()));
 			art.setTitleName(artTitleField.getText());
 			art.setArticleContent(editorField.getHtmlText());
@@ -138,7 +139,6 @@ public class EditController implements Initializable {
 				alert.setHeaderText("创建失败");
 				alert.show();
 			}
-
 		} catch (NullPointerException ne) {
 			Alert alert = new Alert(AlertType.ERROR, "类名或题目不能为空");
 			alert.setTitle("创建失败");
@@ -169,7 +169,7 @@ public class EditController implements Initializable {
 	public void artSubmitButtonUpdateClick(ActionEvent event) {
 		try {
 			art = new Article();
-			art.setArticleId(MainSceneController.getSelectedRowArt.getArtId());
+			art.setArticleId(MainSceneController.getSelectedRowArt.getArtId());			
 			art.setCategoryId(getCatId(readCategoryUpdateBox.getValue()));
 			art.setTitleName(artTitleUpdateField.getText());
 			art.setArticleContent(editorUpdateField.getHtmlText());
@@ -218,6 +218,8 @@ public class EditController implements Initializable {
 	@FXML
 	public void catSubmitButtonClick(ActionEvent event) {
 		cat = new Category();
+		cat.setUserId(new LoginController().getUserId());
+		System.out.println(cat.getUserId());
 		cat.setCategoryName(newCategoryField.getText());
 		cat.setCategoryCreateTime(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 		if (newCategoryField.getText().length() != 0) {
@@ -322,9 +324,12 @@ public class EditController implements Initializable {
 		try {
 			while (rs.next()) {
 				int id = rs.getInt("id");
+				int userId=rs.getInt("userId");
 				String name = rs.getString("categoryName");
-				map.put(id, name);
-				count++;
+				if(userId==new LoginController().getUserId()) {
+					map.put(id, name);
+					count++;	
+				}			
 			}
 			rs.close();
 		} catch (SQLException e) {

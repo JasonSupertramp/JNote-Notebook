@@ -26,7 +26,6 @@
          <menus>
             <Menu mnemonicParsing="false" text="文件">
                <items>
-                  <MenuItem fx:id="logoffMenuItem" mnemonicParsing="false" onAction="#logoffMenuItemClick" text="注销" />
                   <MenuItem fx:id="closeMenuItem1" mnemonicParsing="false" onAction="#closeMenuItemClick" text="关闭" />
                </items>
             </Menu>

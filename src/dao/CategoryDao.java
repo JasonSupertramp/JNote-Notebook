@@ -17,8 +17,8 @@ public class CategoryDao {
 	private static ResultSet rs = null;
 
 	public static void insert(Category cat) {
-		sql = "INSERT INTO Category (categoryName,categoryCreateTime) " + "VALUES('" + cat.getCategoryName() + "'" + ","
-				+ "'" + cat.getCategoryCreateTime() + "')";
+		sql = "INSERT INTO Category (userId,categoryName,categoryCreateTime) " + "VALUES('" + cat.getUserId() + "','"
+				+ cat.getCategoryName() + "','" + cat.getCategoryCreateTime() + "')";
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
@@ -32,7 +32,7 @@ public class CategoryDao {
 	}
 
 	public static ResultSet select() {
-		sql = "SELECT id,categoryName,categoryCreateTime FROM Category";
+		sql = "SELECT id,userId,categoryName,categoryCreateTime FROM Category";
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class CategoryDao {
 	}
 
 	public static void delete(CategoryProperty cat) {
-		sql = "DELETE FROM Category WHERE ID=" + cat.getCatId();
+		sql = "DELETE FROM Category WHERE ID=" + cat.getCatId()+" AND userId="+cat.getUserId();
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
@@ -58,7 +58,7 @@ public class CategoryDao {
 
 	public static void update(CategoryProperty cat) {
 		sql = "UPDATE Category SET categoryName='" + cat.getCatName() + "'" + "," + "categoryCreateTime='"
-				+ cat.getCatCreateTime() + "'" + "WHERE ID=" + cat.getCatId();
+				+ cat.getCatCreateTime() + "'" + "WHERE ID= " + cat.getCatId();
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);

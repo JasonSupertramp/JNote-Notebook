@@ -1,11 +1,28 @@
 package bean;
 
 public class Article {
+
 	private int articleId;
+	private int userId;
 	private int categoryId;
 	private String titleName;
 	private String articleContent;
 	private String createTime;
+
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId
+	 *            the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	/**
 	 * @return the articleId

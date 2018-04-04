@@ -15,8 +15,8 @@ public class UserDao {
 	private static ResultSet rs = null;
 
 	public static void insert(User user) {
-		sql = "INSERT INTO User (username,password) " + "VALUES('" + user.getUsername() + "'" + "," + "'"
-				+ user.getPassword() + "'" + ")";
+		sql = "INSERT INTO User (userId,username,password) " + "VALUES('" + user.getUserId()+"','"+user.getUsername() + "','"
+				+ user.getPassword() + "')";
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
@@ -29,7 +29,7 @@ public class UserDao {
 	}
 
 	public static ResultSet select() {
-		sql = "SELECT username,password FROM User";
+		sql = "SELECT userId,username,password FROM User";
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);

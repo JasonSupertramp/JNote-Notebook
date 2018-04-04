@@ -1,9 +1,27 @@
 package bean;
 
 public class Category {
+
 	private int id;
+	private int userId;
 	private String categoryName;
 	private String categoryCreateTime;
+
+	/**
+	 * @return the userId
+	 */
+	public int getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId
+	 *            the userId to set
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	/**
 	 * @return the categoryCreateTime
 	 */
@@ -12,13 +30,12 @@ public class Category {
 	}
 
 	/**
-	 * @param categoryCreateTime the categoryCreateTime to set
+	 * @param categoryCreateTime
+	 *            the categoryCreateTime to set
 	 */
 	public void setCategoryCreateTime(String categoryCreateTime) {
 		this.categoryCreateTime = categoryCreateTime;
 	}
-
-	
 
 	/**
 	 * @return the id

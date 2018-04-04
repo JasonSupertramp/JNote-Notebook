@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 
 import application.Main;
+import bean.User;
 import javafx.event.ActionEvent;
 /*
  * 每个FXML只有一个控制器，用于响应页面的各种事件
@@ -40,14 +41,16 @@ public class LoginController {
 
 	private Stage stage = Main.getPrimaryStage();;
 	private Scene scene;
+	private static final User user = new User();
 
 	@FXML
 	public void loginButtonClick(ActionEvent event) throws IOException {
-		if (CheckLogin.isLogin(userNameField.getText(), passwordField.getText())) {
+		if (CheckLogin.isLogin(userNameField.getText(), passwordField.getText()) != -1) {
 			scene = new Scene(FXMLLoader.load(getClass().getResource("/layout/MainScene.fxml")));
-			stage.setScene(scene);			
+			stage.setScene(scene);
 			stage.show();
-
+			user.setUserId(CheckLogin.isLogin(userNameField.getText(), passwordField.getText()));
+			System.out.println(user.getUserId());
 		} else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("登录失败");
@@ -76,5 +79,9 @@ public class LoginController {
 	public void exitButtonClick(ActionEvent event) {
 		stage = (Stage) exitButton.getScene().getWindow();
 		stage.close();
+	}
+
+	public int getUserId() {
+		return user.getUserId();
 	}
 }

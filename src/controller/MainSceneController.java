@@ -50,8 +50,6 @@ public class MainSceneController {
 	MenuItem closeMenuItem;
 	@FXML
 	MenuItem closeMenuItem1;
-	@FXML
-	MenuItem logoffMenuItem;
 
 	/** -----左边栏 文章和类别管理-------- */
 	@FXML
@@ -135,6 +133,8 @@ public class MainSceneController {
 	/** -----全局变量-------- */
 	private Stage stage = Main.getPrimaryStage();
 	private Scene scene;
+	@FXML
+	VBox mainScene;
 
 	public MainSceneController() {
 		getSelectedRowCat = null;
@@ -181,17 +181,6 @@ public class MainSceneController {
 	@FXML
 	public void closeMenuItemClick(ActionEvent event) {
 		System.exit(0);
-	}
-
-	@FXML
-	public void logoffMenuItemClick(ActionEvent event) {
-		try {
-			scene = new Scene(FXMLLoader.load(getClass().getResource("/layout/LoginScene.fxml")));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		stage.setScene(scene);
-		stage.show();
 	}
 
 	// 左边栏，点击文章按钮
@@ -399,6 +388,8 @@ public class MainSceneController {
 		catName.setMinWidth(225.0);
 		catCreateTime.setMinWidth(225.0);
 		loadCatData();
+		System.out.println(readOrNot);
+
 		if (readOrNot == 1) {
 			categoryTable.getColumns().addAll(catId, catIndex, catName, catCreateTime);
 			// 调整控件间隔
@@ -409,6 +400,7 @@ public class MainSceneController {
 			vbox.setPadding(new Insets(50, 0, 0, 16));
 			++readOrNot;
 		}
+
 		label.setText("共" + String.valueOf(catData.size()) + "条记录");
 		categoryBlock.getChildren().addAll(vbox);
 	}
@@ -424,12 +416,16 @@ public class MainSceneController {
 		try {
 			while (rs.next()) {
 				String id = String.valueOf(rs.getInt("id"));
+				String userId = String.valueOf(rs.getInt("userId"));
 				String index = String.valueOf(num);
 				String name = rs.getString("categoryName");
 				String time = rs.getString("categoryCreateTime");
-				cp = new CategoryProperty(id, index, name, time);
-				catData.add(cp);
-				num++;
+				if (Integer.parseInt(userId) == new LoginController().getUserId()) {
+					cp = new CategoryProperty(id, userId, index, name, time);
+					catData.add(cp);
+					num++;
+				}
+
 			}
 			rs.close();
 		} catch (SQLException e1) {
@@ -448,15 +444,19 @@ public class MainSceneController {
 		try {
 			while (rs.next()) {
 				String artId = rs.getString("articleId");
+				String userId = rs.getString("userId");
 				String catId = rs.getString("categoryId");
 				String index = String.valueOf(num);
 				String artName = rs.getString("titleName");
 				String catName = map.get(Integer.parseInt(catId));
 				String content = rs.getString("articleContent");
 				String time = rs.getString("createTime");
-				ap = new ArticleProperty(artId, catId, index, artName, catName, content, time);
-				artData.add(ap);
-				num++;
+				if (Integer.parseInt(userId) == new LoginController().getUserId()) {
+					ap = new ArticleProperty(artId, userId, catId, index, artName, catName, content, time);
+					artData.add(ap);
+					num++;
+				}
+
 			}
 			rs.close();
 		} catch (SQLException e1) {

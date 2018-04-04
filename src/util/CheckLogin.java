@@ -8,25 +8,24 @@ import dao.UserDao;
 
 public class CheckLogin {
 	private static ResultSet rs = null;
-	private static boolean flag = false;
+	private static int userId = -1;
 
-	public static boolean isLogin(String iuser, String ipass) throws IOException {
+	public static int isLogin(String iuser, String ipass) throws IOException {
 		rs = UserDao.select();
 		try {
 			while (rs.next()) {
+				int userId = rs.getInt("userId");
 				String username = rs.getString("username");
 				String password = rs.getString("password");
 
 				if ((username.equals(iuser)) & (password.equals(ipass))) {
-					flag = true;
 					rs.close();
-					return flag;
+					return userId;
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
-		return flag;
+		return userId;
 	}
 }

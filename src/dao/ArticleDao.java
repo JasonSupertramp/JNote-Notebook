@@ -16,9 +16,9 @@ public class ArticleDao {
 	private static ResultSet rs = null;
 
 	public static void insert(Article art) {
-		sql = "INSERT INTO Article (categoryId,titleName,articleContent,createTime) " + "VALUES('" + art.getCategoryId()
-				+ "'" + "," + "'" + art.getTitleName() + "'" + "," + "'" + art.getArticleContent() + "'" + "," + "'"
-				+ art.getCreateTime() + "')";
+		sql = "INSERT INTO Article (userId,categoryId,titleName,articleContent,createTime) " + "VALUES('"
+				+ art.getUserId() + "','" + art.getCategoryId() + "','" + art.getTitleName() + "','"
+				+ art.getArticleContent() + "','" + art.getCreateTime() + "')";
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class ArticleDao {
 	}
 
 	public static ResultSet select() {
-		sql = "SELECT articleId,categoryId,titleName,articleContent,createTime FROM Article";
+		sql = "SELECT articleId,userId,categoryId,titleName,articleContent,createTime FROM Article";
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
@@ -59,6 +59,7 @@ public class ArticleDao {
 		sql = "UPDATE Article SET categoryId='" + art.getCategoryId() + "'" + "," + "titleName='" + art.getTitleName()
 				+ "'" + "," + "articleContent='" + art.getArticleContent() + "'" + "," + "createTime='"
 				+ art.getCreateTime() + "'" + "WHERE articleId=" + art.getArticleId();
+			
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
