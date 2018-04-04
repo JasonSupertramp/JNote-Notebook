@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="112.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditController">
+   <children>
+      <Label layoutX="14.0" layoutY="21.0" prefHeight="29.0" prefWidth="63.0" text="   类别名">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="newCategoryField" layoutX="77.0" layoutY="24.0" prefHeight="23.0" prefWidth="160.0" />
+      <Button fx:id="catSubmitButton" layoutX="77.0" layoutY="73.0" mnemonicParsing="false" onAction="#catSubmitButtonClick" text="提交" />
+      <Button fx:id="catCancelButton" layoutX="138.0" layoutY="73.0" mnemonicParsing="false" onAction="#catCancelButtonClick" text="取消" />
+      <Button fx:id="catResetButton" layoutX="198.0" layoutY="73.0" mnemonicParsing="false" onAction="#catResetButtonClick" text="重置" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterSceneController">
+   <children>
+      <Label layoutX="106.0" layoutY="82.0" prefHeight="20.0" prefWidth="50.0" text="用户名">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="116.0" layoutY="127.0" text="密码">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="registerUserName" layoutX="162.0" layoutY="77.0" prefHeight="30.0" prefWidth="233.0" promptText="长度为5-16为英文字母">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+       <PasswordField fx:id="registerPassword" layoutX="162.0" layoutY="122.0" prefHeight="30.0" prefWidth="233.0" promptText="长度为5-16位的英文字母和数字">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="registerPasswordRepeat" layoutX="162.0" layoutY="161.0" prefHeight="30.0" prefWidth="233.0" promptText="重复密码">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="registerButton2" layoutX="162.0" layoutY="209.0" mnemonicParsing="false" onAction="#registerButtonPress" text="注册">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="resetButton2" layoutX="238.0" layoutY="209.0" mnemonicParsing="false" onAction="#resetButtonPress" text="重置">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelButton2" layoutX="314.0" layoutY="209.0" mnemonicParsing="false" onAction="#cancelButtonPress" text="取消">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      
+      <Label layoutX="96.0" layoutY="166.0" text="重复密码">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Text layoutX="162.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   用户注册" wrappingWidth="233.0">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

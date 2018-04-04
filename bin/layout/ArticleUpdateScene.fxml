@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane  prefHeight="484.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditController">
+   <children>
+      <ChoiceBox fx:id="readCategoryUpdateBox" layoutX="52.0" layoutY="3.0" onMousePressed="#readCategoryBoxUpdateClick" prefHeight="23.0" prefWidth="161.0" />
+      <TextField fx:id="artTitleUpdateField" layoutX="52.0" layoutY="36.0" />
+      <Label layoutX="14.0" layoutY="7.0" text="类别">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="38.0" text="标题">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <HTMLEditor fx:id="editorUpdateField" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutY="70.0" prefHeight="363.0" prefWidth="693.0" />
+      <Button fx:id="artSubmitUpdateButton" layoutX="517.0" layoutY="441.0" mnemonicParsing="false" onAction="#artSubmitButtonUpdateClick" text="提交">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="artCancelUpdateButton" layoutX="575.0" layoutY="441.0" mnemonicParsing="false" onAction="#artCancelButtonUpdateClick" text="取消">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="artResetUpdateButton" layoutX="631.0" layoutY="441.0" mnemonicParsing="false" onAction="#artResetButtonUpdateClick" text="重置">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
