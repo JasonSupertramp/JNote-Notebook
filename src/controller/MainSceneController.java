@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -41,7 +42,11 @@ import javafx.stage.Stage;
 
 public class MainSceneController {
 
+	@FXML
+	VBox mainScene;
 	/** -----菜单栏-------- */
+	@FXML
+	final static Label welcomeLabel=new Label();
 	@FXML
 	MenuItem aboutItem;
 	@FXML
@@ -50,6 +55,8 @@ public class MainSceneController {
 	MenuItem closeMenuItem;
 	@FXML
 	MenuItem closeMenuItem1;
+	@FXML
+	MenuItem explainItem;
 
 	/** -----左边栏 文章和类别管理-------- */
 	@FXML
@@ -133,8 +140,7 @@ public class MainSceneController {
 	/** -----全局变量-------- */
 	private Stage stage = Main.getPrimaryStage();
 	private Scene scene;
-	@FXML
-	VBox mainScene;
+
 
 	public MainSceneController() {
 		getSelectedRowCat = null;
@@ -172,8 +178,9 @@ public class MainSceneController {
 		Alert alert = new Alert(AlertType.INFORMATION, "    这是一个基于JavaFX的笔记本Demo");
 		alert.setTitle("关于");
 		alert.setGraphic(
-				new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/logo.png"))));
-		alert.setHeaderText("     Author:" + " Jason" + "\n\r" + "     Version: 1.0");
+				new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/note.png"))));
+		alert.setHeaderText("     Author:" + " Jason" + "\n\r" + "     Version: 1.0" + "\n\r"
+				+ "     作者Github：https://github.com/JasonSupertramp");
 		alert.initOwner(stage);
 		alert.show();
 	}
@@ -181,6 +188,17 @@ public class MainSceneController {
 	@FXML
 	public void closeMenuItemClick(ActionEvent event) {
 		System.exit(0);
+	}
+
+	@FXML
+	public void explainItemClick(ActionEvent event) {
+		Alert alert = new Alert(AlertType.INFORMATION, "作者Github：https://github.com/JasonSupertramp");
+		alert.setTitle("说明");
+		alert.setGraphic(
+				new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/about.png"))));
+		alert.setHeaderText("  该笔记本实现了类别和文章的增删改查功能，其中文章的查看通过双击表中条\r\n目实现，文章和类别的增加、修改、删除操作通过点击面板上对应按钮实现 。");
+		alert.initOwner(stage);
+		alert.show();
 	}
 
 	// 左边栏，点击文章按钮
@@ -496,6 +514,7 @@ public class MainSceneController {
 		}
 		return flag;
 	}
+
 }
 // private void getSelectedRowId() {
 // categoryTable.setOnMouseClicked(e -> {

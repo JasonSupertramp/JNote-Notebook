@@ -31,6 +31,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="帮助">
                <items>
+                  <MenuItem fx:id="explainItem" mnemonicParsing="false" onAction="#explainItemClick" text="说明" />
                   <MenuItem fx:id="aboutItem" mnemonicParsing="false" onAction="#aboutItemClick" text="关于" />
                </items>
             </Menu>
@@ -52,7 +53,7 @@
          <top>
             <AnchorPane fx:id="infoArea" prefHeight="30.0" prefWidth="617.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="24.0" layoutY="7.0" prefHeight="15.0" prefWidth="274.0" text="Welcome！" />
+                  <Label fx:id="welcomeLabel" layoutX="24.0" layoutY="7.0" prefHeight="15.0" prefWidth="274.0" text="Welcome！" />
                </children>
             </AnchorPane>
          </top>
@@ -66,5 +67,6 @@
             <BorderPane fx:id="articleArea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
+      <Label prefHeight="15.0" prefWidth="775.0" text="                                                                        Copyright © 2018 JasonSupertramp All Rights Reserved" />
    </children>
 </VBox>

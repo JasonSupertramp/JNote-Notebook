@@ -44,7 +44,7 @@ public class CategoryDao {
 	}
 
 	public static void delete(CategoryProperty cat) {
-		sql = "DELETE FROM Category WHERE ID=" + cat.getCatId()+" AND userId="+cat.getUserId();
+		sql = "DELETE FROM Category WHERE ID=" + cat.getCatId();
 		con = SqliteConnect.getConnector();
 		try {
 			ps = con.prepareStatement(sql);
