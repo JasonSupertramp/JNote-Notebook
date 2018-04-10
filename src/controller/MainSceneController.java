@@ -180,7 +180,7 @@ public class MainSceneController {
 		alert.setGraphic(
 				new ImageView(new Image(getClass().getClassLoader().getResourceAsStream("resources/note.png"))));
 		alert.setHeaderText("     Author:" + " Jason" + "\n\r" + "     Version: 1.0" + "\n\r"
-				+ "     ×÷ÕßGithub£ºhttps://github.com/JasonSupertramp");
+				+ "     Github£ºhttps://github.com/JasonSupertramp");
 		alert.initOwner(stage);
 		alert.show();
 	}
