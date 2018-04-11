@@ -1,5 +1,6 @@
 # JNote  
-下载地址：链接: https://pan.baidu.com/s/1xYYvv3JW37BfLId5P8fSDg 密码: phyh  
+下载地址：  
+链接: https://pan.baidu.com/s/1xYYvv3JW37BfLId5P8fSDg 密码: phyh  
 ##功能介绍  
 该笔记本实现了类别和文章的增删改查功能，其中文章的查看通过双击表中条目实现，文章和类别的增加、修改、删除操作通过点击面板上对应按钮实现。  
 ##功能演示  
