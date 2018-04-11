@@ -10,7 +10,7 @@
 ### 用户注册  
 ![用户注册](https://github.com/JasonSupertramp/JNote-Notebook/blob/master/src/screenshot/%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C.jpg)
 ### 用户登录  
-  可以使用初始账号密码admin,admin123登陆也可以自己注册
+  可以使用初始账号密码admin,admin123登陆也可以自己注册  
 ![用户登录](https://github.com/JasonSupertramp/JNote-Notebook/blob/master/src/screenshot/%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95.jpg)
 ### 主界面  
 ![主界面](https://github.com/JasonSupertramp/JNote-Notebook/blob/master/src/screenshot/%E4%B8%BB%E7%95%8C%E9%9D%A2.jpg)
